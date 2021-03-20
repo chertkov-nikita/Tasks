@@ -1,1 +1,1 @@
-print('Something go wrong?')
+print('Yes some thing wrong:/')
