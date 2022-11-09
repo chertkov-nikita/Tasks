@@ -80,9 +80,38 @@ def second_task():
     print(ex_stack)
 
 
+# ////////////////////////////////////////////////////////////////////////////////////
+
+# Задание 3. Реализуйте класс LoggableList, отнаследовав его от классов list и Loggable таким образом,
+# чтобы при добавленииэлемента в список посредством метода append в лог отправлялось сообщение,
+# состоящее из только что добавленного элемента.
+
+
+import time
+
+
+class Loggable:
+    def log(self, msg):
+        print(str(time.ctime()) + ": " + str(msg))
+
+
+class LoggableList(list, Loggable):
+    def append(self, item):
+        list.append(self, item)
+        Loggable.log(self, item)
+
+
+def third_task():
+    log_list = LoggableList()
+    log_list.append(1)
+    log_list.append(2)
+    print(log_list)
+
+
 def main():
     # first_task()
-    second_task()
+    # second_task()
+    third_task()
 
 
 if __name__ == '__main__':
