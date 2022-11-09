@@ -1,3 +1,4 @@
+# Задание 1. Промоделировать процесс наследования классов и понять существует ли путь от одного класса до другого.
 def create_class(count):
     class_tree = {}
     for __ in range(count):
@@ -51,8 +52,37 @@ def first_task():
         print(answer)
 
 
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+# Задание 2. Реализуйте структуру данных, представляющую собой расширенную структуру стек.
+# Необходимо поддерживать добавление элемента на вершину стека, удаление с вершины стека,
+# и необходимо поддерживать операции сложения, вычитания, умножения и целочисленного деления.
+
+
+class ExtendedStack(list):
+    def sum(self):
+        self[-1] = list.pop(self) + self[-1] if len(self) >= 2 else self[-1]
+
+    def sub(self):
+        self[-1] = list.pop(self) - self[-1] if len(self) >= 2 else self[-1]
+
+    def mul(self):
+        self[-1] = list.pop(self) * self[-1] if len(self) >= 2 else self[-1]
+
+    def div(self):
+        self[-1] = list.pop(self) // self[-1] if len(self) >= 2 else self[-1]
+
+
+def second_task():
+    ex_stack = ExtendedStack([1, 2, 3])
+    print(ex_stack)
+    ex_stack.div()
+    print(ex_stack)
+
+
 def main():
-    first_task()
+    # first_task()
+    second_task()
 
 
 if __name__ == '__main__':
