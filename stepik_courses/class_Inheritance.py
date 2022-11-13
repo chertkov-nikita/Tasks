@@ -1,7 +1,7 @@
 # Задание 1. Промоделировать процесс наследования классов и понять существует ли путь от одного класса до другого.
 def create_class(count):
     class_tree = {}
-    for __ in range(count):
+    for _ in range(count):
         string_class_creating = input()
         if len(string_class_creating.split()) == 1:
             key = string_class_creating
@@ -42,7 +42,7 @@ def first_task():
     print(tree)
     answers = []
     q = int(input())
-    for __ in range(q):
+    for _ in range(q):
         string_request = input().split(' ')
         if check_parent(tree, string_request[0], string_request[1]):
             answers.append('Yes')
@@ -82,8 +82,8 @@ def second_task():
 
 # ////////////////////////////////////////////////////////////////////////////////////
 
-# Задание 3. Реализуйте класс LoggableList, отнаследовав его от классов list и Loggable таким образом,
-# чтобы при добавленииэлемента в список посредством метода append в лог отправлялось сообщение,
+# Задание 3. Реализуйте класс LoggableList, наследуя его от классов list и Loggable таким образом,
+# чтобы при добавлении элемента в список посредством метода append в лог отправлялось сообщение,
 # состоящее из только что добавленного элемента.
 
 
@@ -109,8 +109,8 @@ def third_task():
 
 
 def main():
-    # first_task()
-    # second_task()
+    first_task()
+    second_task()
     third_task()
 
 
