@@ -87,10 +87,30 @@ def second_task():
 # 3. Реализуйте класс PositiveList, наследуя его от класса list, для хранения положительных целых чисел.
 # Также реализуйте новое исключение NonPositiveError.
 
+class NonPositiveError(Exception):
+    pass
+
+
+class PositiveList(list):
+    def append(self, value):
+        if value > 0:
+            super(PositiveList, self).append(value)
+        else:
+            raise NonPositiveError('NonPositiveError')
+
+
+def third_task():
+    positive_list = PositiveList()
+    positive_list.append(1)
+    print(positive_list)
+    positive_list.append(-3)
+    print(positive_list)
+
 
 def main():
-    # first_task()
+    first_task()
     second_task()
+    third_task()
 
 
 if __name__ == '__main__':
