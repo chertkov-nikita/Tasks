@@ -5,7 +5,10 @@
 
 import datetime
 
-if __name__ == '__main__':
+import simplecrypt
+
+
+def first_task():
     date_list = list(map(int, input().split()))
     date = datetime.date(date_list[0], date_list[1], date_list[2])
 
@@ -13,3 +16,30 @@ if __name__ == '__main__':
     days = datetime.timedelta(days=delta_day)
     result_date = date + days
     print(result_date.year, result_date.month, result_date.day)
+
+
+# ///////////////////////////////////////////////////////////////////////////////////
+# Вам необходимо установить библиотеку simple-crypt, и с помощью метода simplecrypt.decrypt узнать, какой из паролей
+# служит ключом для расшифровки файла с интересной информацией.
+
+def second_task():
+    with open("encrypted.bin", "rb") as inp:
+        encrypted = inp.read()
+    with open("passwords.txt", "r") as psw:
+        passwords = psw.read()
+    decrypted = 'Passwords is not available!'
+    for key in passwords.split('\n'):
+        try:
+            decrypted = simplecrypt.decrypt(key, encrypted)
+        except simplecrypt.DecryptionException:
+            continue
+        else:
+            print(decrypted.decode('utf-8'))
+            with open('answers.txt', 'w') as out:
+                out.write(decrypted.decode('utf-8'))
+            break
+
+
+if __name__ == '__main__':
+    # first_task()
+    second_task()
