@@ -1,5 +1,7 @@
 # 1. В данной задаче мы просим вас реализовать класс multifilter, который будет выполнять ту же функцию,
 # что и стандартный класс filter, но будет использовать не одну функцию, а несколько.
+import itertools
+
 
 def mul2(x):
     return x % 2 == 0
@@ -56,8 +58,20 @@ def first_task():
 # 2. Реализуйте функцию-генератор primes,
 # которая будет генерировать простые числа в порядке возрастания, начиная с числа 2.
 
+def primes():
+    i = 2
+    while True:
+        for j in range(2, i):
+            if i % j == 0:
+                # если делитель найден, число не простое.
+                break
+        else:
+            yield i
+        i += 1
+
+
 def second_task():
-    pass
+    print(list(itertools.takewhile(lambda x: x <= 31, primes())))
 
 
 def main():
