@@ -22,13 +22,19 @@ def first_task():
 # 2. Вашей программе на вход подаются две строки s и t, состоящие из строчных латинских букв.
 # Выведите одно число – количество вхождений строки t в строку s.
 
-def second_task():
-    pass
+def second_task(string, substring):
+    count = 0
+    i = -1
+    while True:
+        i = string.find(substring, i + 1)
+        if i == -1:
+            return count
+        count += 1
 
 
 def main():
-    # print(first_task())
-    second_task()
+    print(first_task())
+    print(second_task(input(), input()))
 
 
 if __name__ == '__main__':
