@@ -27,7 +27,7 @@ def second_task():
     list_dirs = []
     for current_dir, dirs, files in os.walk("./main"):
         for filename in files:
-            if filename[-3:] == ".py":
+            if filename.endswith(".py"):
                 list_dirs.append(current_dir[2:])
                 break
     list_dirs.sort()
