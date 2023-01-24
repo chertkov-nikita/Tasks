@@ -132,3 +132,4 @@ dmypy.json
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/modules.xml
 /.idea/misc.xml
+/stepik_courses/identifiers.py
